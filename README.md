@@ -2,7 +2,7 @@
 
 Dashboard home for Cursor/VS Code. Shows on blank windows. Manage projects in a grid with thumbnails, URLs, and folders.
 
-![Dashboard](media/assets/dashboard.png)
+![Dashboard](https://raw.githubusercontent.com/deanzod/dashboard-ui/main/media/assets/dashboard.png)
 
 ## Features
 - Auto-open on new blank window (configurable).
