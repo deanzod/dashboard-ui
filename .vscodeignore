@@ -1,0 +1,10 @@
+.git/**
+.vscode/**
+src/**
+**/*.map
+**/*.log
+**/.DS_Store
+**/*.tsbuildinfo
+test/**
+**/*.ts
+

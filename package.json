@@ -1,0 +1,124 @@
+{
+  "name": "dashboard-ui",
+  "displayName": "Dashboard UI",
+  "description": "Dashboard UI for Cursor/VS Code: manage projects with grid, thumbnails, and folders.",
+  "version": "0.1.0",
+  "publisher": "deanmorgan",
+  "author": {
+    "name": "Dean Morgan",
+    "email": "dean@deanmorgan.co.uk",
+    "url": "https://deanmorgan.co.uk"
+  },
+  "icon": "media/assets/icon.png",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:dashboardUi.open",
+    "onCommand:dashboardUi.addCurrentFolder",
+    "onCommand:dashboardUi.screenshotSelected",
+    "onCommand:dashboardUi.import",
+    "onCommand:dashboardUi.export",
+    "onCommand:dashboardUi.renameFolder"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dashboardUi.open",
+        "title": "Dashboard UI: Open"
+      },
+      {
+        "command": "dashboardUi.addCurrentFolder",
+        "title": "Dashboard UI: Add Current Folder"
+      },
+      {
+        "command": "dashboardUi.screenshotSelected",
+        "title": "Dashboard UI: Generate Screenshot for Selected"
+      },
+      {
+        "command": "dashboardUi.import",
+        "title": "Dashboard UI: Import Projects"
+      },
+      {
+        "command": "dashboardUi.export",
+        "title": "Dashboard UI: Export Projects"
+      },
+      {
+        "command": "dashboardUi.renameFolder",
+        "title": "Dashboard UI: Rename Folder"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Dashboard UI",
+      "properties": {
+        "dashboardUi.showOnStartup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show dashboard automatically on every new window."
+        },
+        "dashboardUi.tileSize": {
+          "type": "string",
+          "enum": [
+            "small",
+            "medium",
+            "large"
+          ],
+          "default": "medium",
+          "description": "Tile size in dashboard grid."
+        },
+        "dashboardUi.screenshot.windowSize": {
+          "type": "string",
+          "default": "1280x800",
+          "description": "Window size for headless browser screenshots, e.g. 1280x800."
+        },
+        "dashboardUi.screenshot.browserPaths": {
+          "type": "object",
+          "default": {},
+          "description": "Override paths to Chrome/Edge/Chromium executables per platform (darwin, win32, linux)."
+        },
+        "dashboardUi.confirmOnOpen": {
+          "type": "boolean",
+          "default": false,
+          "description": "Ask for confirmation before opening a project."
+        },
+        "dashboardUi.autoScreenshotOnMissing": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically generate screenshots for projects with a URL when no thumbnail exists."
+        },
+        "dashboardUi.autoScreenshotMaxPerLoad": {
+          "type": "number",
+          "default": 3,
+          "minimum": 0,
+          "maximum": 20,
+          "description": "Maximum number of missing thumbnails to auto-generate per dashboard load."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "test": "echo 'No tests yet'"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "@types/vscode": "^1.88.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.0",
+    "vsce": "^2.15.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deanmorgan/dashboard-ui"
+  }
+}

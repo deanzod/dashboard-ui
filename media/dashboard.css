@@ -1,0 +1,25 @@
+:root{ --gap:12px; --tile:160px; --bg:var(--vscode-editor-background); --fg:var(--vscode-editor-foreground); --muted:var(--vscode-descriptionForeground); }
+body{ background:var(--bg); color:var(--fg); font: 13px/1.4 var(--vscode-editor-font-family, system-ui, sans-serif); }
+#app{ display:grid; grid-template-columns: 240px 1fr; height:100vh; }
+.sidebar{ border-right:1px solid var(--vscode-editorGroup-border); padding:12px; overflow:auto; }
+.groups{ display:flex; flex-direction:column; gap:6px; }
+.group{ padding:6px 8px; border-radius:4px; cursor:pointer; }
+.group.active{ background: var(--vscode-list-activeSelectionBackground); color: var(--vscode-list-activeSelectionForeground); }
+.toolbar{ display:flex; gap:8px; align-items:center; padding:8px; border-bottom:1px solid var(--vscode-editorGroup-border); }
+.grid{ padding:12px; display:grid; grid-template-columns: repeat(auto-fill, minmax(var(--tile), 1fr)); gap: var(--gap); align-content:start; overflow:auto; }
+.tile{ border:1px solid var(--vscode-editorWidget-border); border-radius:6px; padding:8px; background:var(--vscode-editorWidget-background); display:flex; flex-direction:column; gap:8px; user-select:none; position:relative; }
+.tile:hover{ outline:2px solid var(--vscode-focusBorder); cursor:pointer; }
+.tile.add{ align-items:center; justify-content:center; cursor:pointer; border:1px dashed var(--vscode-editorWidget-border); }
+.tile.add .plus{ font-size:18px; line-height:1; opacity:0.9; padding:12px 16px; border-radius:6px; background: var(--vscode-button-secondaryBackground); color: var(--vscode-button-secondaryForeground); }
+.thumb{ width:100%; aspect-ratio: 16/10; background: #111; border-radius:4px; display:grid; place-items:center; overflow:hidden; }
+.thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.title{ font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.path, .url{ display:none; }
+.tile .actions{ position:absolute; top:6px; right:6px; }
+.btn{ padding:4px 8px; border:1px solid var(--vscode-button-border, transparent); background:var(--vscode-button-secondaryBackground); color:var(--vscode-button-secondaryForeground); border-radius:4px; cursor:pointer; }
+.btn.primary{ background:var(--vscode-button-background); color:var(--vscode-button-foreground); }
+.menu{ position:absolute; top:28px; right:6px; background:var(--vscode-editorWidget-background); border:1px solid var(--vscode-editorWidget-border); border-radius:6px; padding:6px; display:none; flex-direction:column; gap:6px; z-index:10; }
+.menu.open{ display:flex; }
+.menu .btn{ width:160px; text-align:left; }
+.grid.dragging .tile{ opacity:.9; }
+
